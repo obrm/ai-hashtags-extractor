@@ -12,16 +12,12 @@ const AppProvider = ({ children }) => {
     setLoading(true);
     setIsOpen(true);
 
-    const isProduction = process.env.NODE_ENV === 'production';
-    const openAIKey = isProduction ? process.env.OPENAI_API_KEY : import.meta.env.VITE_OPENAI_API_KEY;
-    const openAIUrl = isProduction ? process.env.OPENAI_API_URL : import.meta.env.VITE_OPENAI_API_URL;
-
     const options = {
       // https://platform.openai.com/docs/api-reference/completions/create
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        Authorization: `Bearer ${openAIKey}`,
+        Authorization: `Bearer ${import.meta.env.VITE_OPENAI_API_KEY}`,
       },
       body: JSON.stringify({
         model: 'text-davinci-003',
@@ -36,7 +32,7 @@ const AppProvider = ({ children }) => {
 
     try {
       const response = await fetch(
-        openAIUrl,
+        import.meta.env.VITE_OPENAI_API_URL,
         options
       );
       const json = await response.json();
