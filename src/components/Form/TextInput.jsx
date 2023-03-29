@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import { Textarea, Button, useToast } from '@chakra-ui/react';
 
@@ -6,9 +6,15 @@ import { useGlobalContext } from '../../context/context';
 
 const TextInput = () => {
   const [text, setText] = useState('');
+  const textareaRef = useRef(null);
+
   const { extractHashtags } = useGlobalContext();
 
   const toast = useToast();
+
+  useEffect(() => {
+    textareaRef.current.focus();
+  }, []);
 
   const submitText = () => {
     if (text === '') {
@@ -28,6 +34,7 @@ const TextInput = () => {
   return (
     <>
       <Textarea
+        ref={textareaRef}
         backgroundColor='gary.200'
         color='white'
         padding={4}
