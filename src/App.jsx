@@ -1,6 +1,6 @@
 import { Container, Box } from '@chakra-ui/react';
 
-import { Header, TextInput, Footer } from './components';
+import { Header, TextInput, Footer, Modal } from './components';
 
 const App = () => {
   return (
@@ -10,6 +10,7 @@ const App = () => {
         <TextInput />
         <Footer />
       </Container>
+      <Modal />
     </Box>
   );
 };
