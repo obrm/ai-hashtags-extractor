@@ -23,7 +23,7 @@ const AppProvider = ({ children }) => {
         model: 'text-davinci-003',
         prompt: 'Extract Hashtags from this text. Make all the letters lower case and prefix each word with # and separate with space\n\n' + text + '',
         temperature: 0.5, // Controls the randomness of the text generation. Higher more random, more creative, but can lead to unexpected results. Lower will lead to more conservative and predictable results. Range between 0-1.
-        max_tokens: 60, // Number of words getting back
+        max_tokens: 100, // Number of words getting back
         top_p: 1.0,
         frequency_penalty: 0.8, // Higher makes the responses less repetitive. Range between -2.0 - 2.0
         presence_penalty: 0.0,

@@ -20,7 +20,7 @@ const HashtagsModal = () => {
   const toast = useToast();
 
   const handleCopy = () => {
-    navigator.clipboard.writeText(hashtags);
+    navigator.clipboard.writeText(hashtags.join(' '));
     toast({
       title: 'Copied to clipboard',
       description: 'Hashtags copied to clipboard',
