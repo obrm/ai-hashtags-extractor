@@ -49,10 +49,10 @@ const HashtagsModal = () => {
           </ModalBody>
 
           <ModalFooter>
+            {!loading && <Button variant='ghost' onClick={handleCopy}>Copy to clipboard</Button>}
             <Button colorScheme='gray' mr={3} onClick={closeModal}>
               Close
             </Button>
-            <Button variant='ghost' onClick={handleCopy}>Copy to clipboard</Button>
           </ModalFooter>
         </ModalContent>
       </Modal>
