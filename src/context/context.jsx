@@ -4,7 +4,7 @@ const AppContext = createContext();
 
 
 const AppProvider = ({ children }) => {
-  const [hashtags, setHashtags] = useState('');
+  const [hashtags, setHashtags] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -40,7 +40,7 @@ const AppProvider = ({ children }) => {
         options
       );
       const json = await response.json();
-      setHashtags(json.choices[0].text.trim());
+      setHashtags(json.choices[0].text.trim().split(' '));
       setLoading(false);
     } catch (error) {
       console.error(error);

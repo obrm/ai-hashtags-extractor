@@ -38,11 +38,13 @@ const HashtagsModal = () => {
         <ModalContent>
           <ModalHeader>Keywords</ModalHeader>
           <ModalCloseButton />
-          <ModalBody display='flex' alignItems='center' justifyContent='center'>
+          <ModalBody display='flex' alignItems='center' justifyContent='center' flexWrap='wrap'>
             {loading ? (
               <CircularProgress isIndeterminate color='gray' />
             ) : (
-              <Text>{hashtags}</Text>
+                hashtags.map((hashtag) => (
+                  <Text key={hashtag} padding='2px 5px' margin='1' borderRadius='5' backgroundColor='gray.300' > {hashtag}</Text>
+                ))
             )}
           </ModalBody>
 
