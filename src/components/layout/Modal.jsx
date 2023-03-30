@@ -9,7 +9,7 @@ import {
   ModalBody,
   ModalCloseButton,
   CircularProgress,
-  useToast
+  useToast,
 } from '@chakra-ui/react';
 
 import { useGlobalContext } from '../../context/context';
@@ -49,7 +49,7 @@ const HashtagsModal = () => {
           </ModalBody>
 
           <ModalFooter>
-            {!loading && <Button variant='ghost' onClick={handleCopy}>Copy to clipboard</Button>}
+            {!loading && <Button variant='ghost' marginRight='2' onClick={handleCopy}>Copy to clipboard</Button>}
             <Button colorScheme='gray' mr={3} onClick={closeModal}>
               Close
             </Button>
